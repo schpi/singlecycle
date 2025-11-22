@@ -1,0 +1,64 @@
+module program_counter (
+    input wire clock,
+    input wire rest,
+    input wire [31:0] pc_next,
+    output reg [31:0]  current_program
+);
+
+    always @(posedge clock or posedge rest) begin
+        if (reset)
+            current_program <= 32'b0;  
+        else
+            current_program  <= pc_next;
+    end
+
+endmodule
+
+module tb_program_counter;
+
+    reg clock;
+    reg rest;
+    reg [31:0] pc_next;
+    wire [31:0] current_program;
+
+    
+    program_counter uut (
+        .clock(clock),
+        .rest(rest),
+        .pc_next(pc_next),
+        .current_program(current_program)
+    );
+
+    
+    always #5 clock = ~clock;
+
+    initial begin
+        $display("\n starting testt ");
+        clock = 0;
+        rest = 1;
+        pc_next = 32'h00000000;      
+        #10;
+        rest = 0; 
+        #10;
+        $display("pc = %h ", $time, current_program);  
+        pc_next = 32'd4;
+        #10;
+        $display("pc = %h ", $time, current_program);  
+        pc_next = 32'd8;
+        #10;
+        $display(" pc = %h", $time, current_program); 
+        pc_next = 32'd12;
+        #10;
+        $display("pc = %h", $time, current_program); 
+        rest = 1;
+        #10;
+        rest = 0;
+        pc_next = 32'd02;
+        #10;
+        $display("pc = %h (After Reset)", $time,current_program );
+
+        $display(" END OF TEST ");
+        $stop;
+    end
+
+endmodule

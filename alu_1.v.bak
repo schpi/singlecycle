@@ -1,0 +1,19 @@
+module alu_1 (
+    input  [31:0] a, b,          // 32-bit inputs
+    input  [2:0]  ALUC,          // 3-bit control signal
+    output logic [31:0] c       // 32-bit result
+);
+
+    always @(*) begin
+        case (ALUC)
+            3'b000: c = a + b;        // ADD
+            3'b001: c = a - b;        // SUB
+            3'b010: c = a & b;        // AND
+            3'b011: c = a | b;        // OR
+            3'b100: c = a ^ b;        // XOR
+            3'b101: c = a < b;     // NOR
+            default: c = 32'b0;       // Default case (optional)
+        endcase
+    end
+
+endmodule

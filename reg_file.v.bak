@@ -1,0 +1,107 @@
+module reg_file (
+    input         clk,             // Clock
+    input         reg_write,       // Write enable
+    input  [4:0]  read_reg1,       // Read register 1 address
+    input  [4:0]  read_reg2,       // Read register 2 address
+    input  [4:0]  write_reg,       // Write register address
+    input  [31:0] write_data,      // Data to write
+    output [31:0] read_data1,      // Output from register 1
+    output [31:0] read_data2       // Output from register 2
+);
+
+    // 32 registers of 32-bit each
+    reg [31:0] registers[0:31];
+
+    // Read Operations (combinational)
+    assign read_data1 = (read_reg1 == 0) ? 32'b0 : registers[read_reg1];
+    assign read_data2 = (read_reg2 == 0) ? 32'bx : registers[read_reg2];  // Modified to return 'x' when reading x0
+
+    // Write Operation (on positive edge of clock)
+    always @(posedge clk) begin
+        if (reg_write && write_reg != 0) begin
+            registers[write_reg] <= write_data;
+        end
+    end
+
+endmodule
+`timescale 1ns / 1ps
+
+module tb_reg_file;
+
+    // Inputs
+    reg         clk;
+    reg         reg_write;
+    reg  [4:0]  read_reg1;
+    reg  [4:0]  read_reg2;
+    reg  [4:0]  write_reg;
+    reg  [31:0] write_data;
+
+    // Outputs
+    wire [31:0] read_data1;
+    wire [31:0] read_data2;
+
+    // Instantiate the register file
+    reg_file uut (
+        .clk(clk),
+        .reg_write(reg_write),
+        .read_reg1(read_reg1),
+        .read_reg2(read_reg2),
+        .write_reg(write_reg),
+        .write_data(write_data),
+        .read_data1(read_data1),
+        .read_data2(read_data2)
+    );
+
+    // Clock generation
+    always #5 clk = ~clk;
+
+    // Test procedure
+    initial begin
+        $display("=== Register File Test Start ===");
+
+        // Init
+        clk = 0;
+        reg_write = 0;
+        write_reg = 0;
+        write_data = 0;
+        read_reg1 = 0;
+        read_reg2 = 0;
+
+        // Wait for reset
+        #10;
+
+        // Try writing to register x0 (should not change value)
+        reg_write = 1;
+        write_reg = 5'd0;            // x0
+        write_data = 32'hDEADBEEF;
+        #10;
+
+        // Read from x0, should still be 0
+        reg_write = 0;
+        read_reg1 = 5'd0;
+        #10;
+        $display("x0 (should be 0): %h", read_data1);
+
+        // Write to x3
+        reg_write = 1;
+        write_reg = 5'd3;
+        write_data = 32'h12345678;
+        #10;
+
+        // Read from x3
+        reg_write = 0;
+        read_reg1 = 5'd3;
+        #10;
+        $display("x3 (should be 0x12345678): %h", read_data1);
+
+        // Read two registers at once: x0 and x3
+        read_reg1 = 5'd0;
+        read_reg2 = 5'd3;
+        #10;
+        $display("x0 = %h | x3 = %h", read_data1, read_data2);
+
+        $display("=== Register File Test End ===");
+        $stop;
+    end
+
+endmodule

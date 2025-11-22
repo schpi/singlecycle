@@ -1,0 +1,129 @@
+# Current time Wed Oct 15 08:22:09 2025
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 7404d600. Traceback:
+# 0    0x7404d600: 'Tcl_AppendLimitedToObj + 0x30'
+# 1    0x7404db75: 'Tcl_AppendStringsToObjVA + 0x25'
+# 2    0x74049e6a: 'Tcl_AppendResult + 0x2a'
+# 3    0x5e406802: '<unknown (@0x5e406802)>'
+# 4    0x5e3f8c37: '<unknown (@0x5e3f8c37)>'
+# 5    0x5e404a73: '<unknown (@0x5e404a73)>'
+# 6    0x5e404bec: '<unknown (@0x5e404bec)>'
+# 7    0x73f939f1: 'TclNREvalObjv + 0x3e1'
+# 8    0x73f93a49: 'TclNRRunCallbacks + 0x49'
+# 9    0x73f9563c: 'Tcl_EvalObjEx + 0x2c'
+# 10   0x74d50400: 'Itcl_EvalMemberCode + 0x300'
+# 11   0x0264ecb8: '<unknown (@0x264ecb8)>'
+# 12   0x73f939f1: 'TclNREvalObjv + 0x3e1'
+StackWalk failed 299
+# End of Stack Trace
+
+# Current time Sun Nov 09 22:35:46 2025
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 5b33d600. Traceback:
+# 0    0x5b33d600: 'Tcl_AppendLimitedToObj + 0x30'
+# 1    0x5b33db75: 'Tcl_AppendStringsToObjVA + 0x25'
+# 2    0x5b339e6a: 'Tcl_AppendResult + 0x2a'
+# 3    0x5a7a6802: '<unknown (@0x5a7a6802)>'
+# 4    0x5a798c37: '<unknown (@0x5a798c37)>'
+# 5    0x5a7a4a73: '<unknown (@0x5a7a4a73)>'
+# 6    0x5a7a4bec: '<unknown (@0x5a7a4bec)>'
+# 7    0x5b2839f1: 'TclNREvalObjv + 0x3e1'
+# 8    0x5b283a49: 'TclNRRunCallbacks + 0x49'
+# 9    0x5b28563c: 'Tcl_EvalObjEx + 0x2c'
+# 10   0x5adf0400: 'Itcl_EvalMemberCode + 0x300'
+# 11   0x0264ecb8: '<unknown (@0x264ecb8)>'
+# 12   0x5b2839f1: 'TclNREvalObjv + 0x3e1'
+StackWalk failed 299
+# End of Stack Trace
+
+# Current time Mon Nov 10 00:13:35 2025
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 5ee9d600. Traceback:
+# 0    0x5ee9d600: 'Tcl_AppendLimitedToObj + 0x30'
+# 1    0x5ee9db75: 'Tcl_AppendStringsToObjVA + 0x25'
+# 2    0x5ee99e6a: 'Tcl_AppendResult + 0x2a'
+# 3    0x5a7a6802: '<unknown (@0x5a7a6802)>'
+# 4    0x5a798c37: '<unknown (@0x5a798c37)>'
+# 5    0x5a7a4a73: '<unknown (@0x5a7a4a73)>'
+# 6    0x5a7a4bec: '<unknown (@0x5a7a4bec)>'
+# 7    0x5ede39f1: 'TclNREvalObjv + 0x3e1'
+# 8    0x5ede3a49: 'TclNRRunCallbacks + 0x49'
+# 9    0x5ede563c: 'Tcl_EvalObjEx + 0x2c'
+# 10   0x5ae00400: 'Itcl_EvalMemberCode + 0x300'
+# 11   0x0264ecb8: '<unknown (@0x264ecb8)>'
+# 12   0x5ede39f1: 'TclNREvalObjv + 0x3e1'
+StackWalk failed 299
+# End of Stack Trace
+
+# Current time Mon Nov 10 00:47:09 2025
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 007652a8. Traceback:
+# 0    0x007652a8: 'WlfContextItem::`vector deleting destructor' + 0x6a008'
+# 1    0x00763d1f: 'WlfContextItem::`vector deleting destructor' + 0x68a7f'
+# 2    0x007632d5: 'WlfContextItem::`vector deleting destructor' + 0x68035'
+# 3    0x00768854: 'WlfContextItem::`vector deleting destructor' + 0x6d5b4'
+# 4    0x00769603: 'WlfContextItem::`vector deleting destructor' + 0x6e363'
+# 5    0x0076654e: 'WlfContextItem::`vector deleting destructor' + 0x6b2ae'
+# 6    0x0076653f: 'WlfContextItem::`vector deleting destructor' + 0x6b29f'
+# 7    0x00764181: 'WlfContextItem::`vector deleting destructor' + 0x68ee1'
+# 8    0x0067cb2e: 'WinMain + 0x12379e'
+# 9    0x004f72f9: 'EnumDispProc + 0x1779'
+# 10   0x5ede1fae: 'TclInvokeStringCommand + 0xbe'
+# 11   0x5ede39f1: 'TclNREvalObjv + 0x3e1'
+# 12   0x5ede3a49: 'TclNRRunCallbacks + 0x49'
+# 13   0x5ede563c: 'Tcl_EvalObjEx + 0x2c'
+# 14   0x5ae00400: 'Itcl_EvalMemberCode + 0x300'
+# 15   0x0264eb5c: '<unknown (@0x264eb5c)>'
+# 16   0x5ede39f1: 'TclNREvalObjv + 0x3e1'
+StackWalk failed 299
+# End of Stack Trace
+
+# Current time Mon Nov 10 13:39:16 2025
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 5ee9d600. Traceback:
+# 0    0x5ee9d600: 'Tcl_AppendLimitedToObj + 0x30'
+# 1    0x5ee9db75: 'Tcl_AppendStringsToObjVA + 0x25'
+# 2    0x5ee99e6a: 'Tcl_AppendResult + 0x2a'
+# 3    0x5aa76802: '<unknown (@0x5aa76802)>'
+# 4    0x5aa68c37: '<unknown (@0x5aa68c37)>'
+# 5    0x5aa74a73: '<unknown (@0x5aa74a73)>'
+# 6    0x5aa74bec: '<unknown (@0x5aa74bec)>'
+# 7    0x5ede39f1: 'TclNREvalObjv + 0x3e1'
+# 8    0x5ede3a49: 'TclNRRunCallbacks + 0x49'
+# 9    0x5ede563c: 'Tcl_EvalObjEx + 0x2c'
+# 10   0x73ba0400: 'Itcl_EvalMemberCode + 0x300'
+# 11   0x0264ecb8: '<unknown (@0x264ecb8)>'
+# 12   0x5ede39f1: 'TclNREvalObjv + 0x3e1'
+StackWalk failed 299
+# End of Stack Trace
+

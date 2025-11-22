@@ -1,0 +1,188 @@
+module toplvl_processor (
+    input clk,
+    input reset
+);
+
+ // === WIRE DECLARATIONS ===
+
+wire [31:0] pc;
+wire [31:0] pcnext;
+wire [31:0] pcplus4;
+wire [31:0] pctarget;
+
+wire [31:0] instr;
+wire RegWrite, MemWrite, Branch, Jump, PCSrc;
+wire [1:0] ALUSrc, ResultSrc;
+wire [2:0] ImmSrc, ALUControl;
+wire [4:0] rs1, rs2, rd;
+wire [31:0] rd1, rd2;
+wire [31:0] imm;
+wire [31:0] srcA, srcB, alu_result;
+wire Zero;
+wire [31:0] read_data, result;
+
+// === Control flag to delay execution 1 cycle after reset
+reg exec_enable;
+
+// === EXEC_ENABLE logic
+always @(posedge clk or posedge reset) begin
+    if (reset)
+        exec_enable <= 0;
+    else
+        exec_enable <= 1; // 1 cycle after reset
+end
+
+// === PC Module
+pc_cnt pc_register (
+    .clk(clk),
+    .reset(reset),
+    .pcnext(pcnext),
+    .pc(pc)
+);
+
+// Instruction Memory
+instr_mem imem (
+    .address(pc),
+    .instruction(instr)
+);
+
+// Control Unit
+control_unit cu (
+    .opcode(instr[6:0]),
+    .funct3(instr[14:12]),
+    .funct7(instr[31:25]),
+    .Zero(Zero),
+    .RegWrite(RegWrite),
+    .MemWrite(MemWrite),
+    .ALUSrc(ALUSrc),
+    .ImmSrc  (ImmSrc  ),
+    .ResultSrc(ResultSrc),
+    .Branch(Branch),
+    .ALUControl(ALUControl),
+    .Jump(Jump),
+    .PCSrc(PCSrc)
+);
+
+// Register File
+reg_file rf (
+    .clk(clk),
+    .reg_write(RegWrite),
+    .read_reg1(instr[19:15]),
+    .read_reg2(instr[24:20]),
+    .write_reg(instr[11:7]),
+    .write_data(result),
+    .read_data1(rd1),
+    .read_data2(rd2)
+);
+
+// Immediate Generator
+immem_ext imm_ext (
+    .ImmSrc(ImmSrc),
+    .Ins(instr),
+    .Imm(imm)
+);
+
+// ALU Sources
+assign srcA = rd1;
+assign srcB =
+    (ALUSrc == 2'b00) ? rd2 :
+    (ALUSrc == 2'b01) ? imm :
+    32'b0;
+
+// ALU Block
+alu_1 alu (
+    .a(srcA),
+    .b(srcB),
+    .ALUC(ALUControl),
+    .c(alu_result)
+);
+
+assign Zero = (alu_result == 0);
+
+// Data Memory
+data_mem dmem (
+    .clk(clk),
+    .MW(MemWrite),
+    .A(alu_result),
+    .WD(rd2),
+    .RD(read_data)
+);
+
+// Write-Back MUX
+assign result =
+    (ResultSrc == 2'b00) ? alu_result :
+    (ResultSrc == 2'b01) ? read_data :
+    (ResultSrc == 2'b10) ? pcplus4 :
+    32'b0;
+
+// PC Calculations
+assign pcplus4  = pc + 32'd4;
+assign pctarget = pc + imm;
+
+// ? Freeze PC for 1 cycle after reset
+assign pcnext = (exec_enable) ? ((PCSrc) ? pctarget : pcplus4) : pc;
+
+endmodule
+
+
+
+
+
+`timescale 1ns/1ps
+`timescale 1ns/1ps
+
+module tb_toplvl_processor;
+
+    // Testbench signals
+    reg clk;
+    reg reset;
+
+    // Instantiate your top-level processor
+    toplvl_processor uut (
+        .clk(clk),
+        .reset(reset)
+    );
+
+    // Clock generation: toggle every 5ns (10ns period)
+    initial clk = 0;
+    always #5 clk = ~clk;
+
+    // Main Simulation Logic
+    initial begin
+        $display("\n=== Starting Top Level Processor Simulation ===");
+
+        // Apply reset
+        clk = 0;
+        reset = 1;
+        #10;
+        reset = 0;
+
+        // Run for 6 instruction cycles
+        repeat (12) begin
+    @(posedge clk); // Wait for one positive edge
+    #1;             // Small delay to allow signals to settle
+
+    $display("Time: %0t ns", $time);
+    $display("PC              : 0x%08h", uut.pc);
+    $display("Instruction     : 0x%08h", uut.instr);
+    $display("ReadData1 (rs1) : 0x%08h", uut.rd1);
+    $display("ReadData2 (rs2) : 0x%08h", uut.rd2);
+    $display("ALU Result      : 0x%08h", uut.alu_result);
+    $display("WriteData (Reg) : 0x%08h", uut.result);
+    $display("MemRead Data    : 0x%08h", uut.read_data);
+    $display("write Data(mem)    : 0x%08h", uut.rd2);
+
+    if (uut.ResultSrc == 2'b01)
+        $display("? [Cycle] ResultSrc = 2'b01 (lw), read_data = 0x%08h", uut.read_data);
+    else
+        $display("?? [Cycle] ResultSrc = %b (not lw)", uut.ResultSrc);
+
+    $display("-----------------------------------------------");
+end
+
+
+        $display("=== End of Simulation ===\n");
+        $stop;
+    end
+
+endmodule

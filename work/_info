@@ -1,0 +1,824 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/20.1
+vAdder
+Z0 !s110 1763387747
+!i10b 1
+!s100 hdI^?En1Y:[4?O0Z<KQVL1
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I3AGJn23oWk[9h1BhW33<Z0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dD:/single cycle
+w1760513100
+8D:/single cycle/Adder.v
+FD:/single cycle/Adder.v
+!i122 919
+L0 1 7
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1763387747.000000
+!s107 D:/single cycle/Adder.v|
+!s90 -reportprogress|300|-work|work|D:/single cycle/Adder.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@adder
+vAddressDecoder_2Block
+!s110 1762937908
+!i10b 1
+!s100 GNEPWUKN?jn?<mZn`[O^E0
+R1
+IQ0dZ3b4C[Xn`cMhLHKYzz1
+R2
+R3
+w1762893464
+8D:/sigle cycle1/AddressDecoder_2Block
+FD:/sigle cycle1/AddressDecoder_2Block
+!i122 918
+L0 1 30
+R4
+r1
+!s85 0
+31
+!s108 1762937908.000000
+!s107 D:/sigle cycle1/AddressDecoder_2Block|
+!s90 -reportprogress|300|-work|work|D:/sigle cycle1/AddressDecoder_2Block|
+!i113 1
+R6
+R7
+n@address@decoder_2@block
+valu_1
+R0
+!i10b 1
+!s100 _2ZS6SciSd7P9i4PS8[Vn3
+R1
+IZ=1L6=lclULD<ZV6MUg^F3
+R2
+R3
+w1760455723
+8D:/single cycle/alu_1.v
+FD:/single cycle/alu_1.v
+!i122 920
+Z8 L0 1 26
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/single cycle/alu_1.v|
+!s90 -reportprogress|300|-work|work|D:/single cycle/alu_1.v|
+!i113 1
+R6
+R7
+vcontrol_unit
+Z9 !s110 1760513823
+!i10b 1
+!s100 I9m4VhcQ;IX?eVA0i4C2`1
+R1
+I>aPd@>K79eH;>M^@n>6@F0
+R2
+Z10 dC:/intelFPGA/20.1/single cycle
+Z11 w1760471592
+Z12 8C:/intelFPGA/20.1/single cycle/control_unit.v
+Z13 FC:/intelFPGA/20.1/single cycle/control_unit.v
+!i122 606
+L0 1 129
+R4
+r1
+!s85 0
+31
+Z14 !s108 1760513823.000000
+Z15 !s107 C:/intelFPGA/20.1/single cycle/control_unit.v|
+Z16 !s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA/20.1/single cycle/control_unit.v|
+!i113 1
+R6
+R7
+vd_flipflop
+Z17 !s110 1762932283
+!i10b 1
+!s100 nCB^Kko5Q;A;iU0SJL:bE1
+R1
+I1lRcDJT=F<9EglkCkFlEj3
+R2
+R3
+Z18 w1762932076
+Z19 8D:/single cycle/d_flipflop
+Z20 FD:/single cycle/d_flipflop
+!i122 889
+L0 2 15
+R4
+r1
+!s85 0
+31
+Z21 !s108 1762932283.000000
+Z22 !s107 D:/single cycle/d_flipflop|
+Z23 !s90 -reportprogress|300|-work|work|D:/single cycle/d_flipflop|
+!i113 1
+R6
+R7
+vdata_mem
+Z24 !s110 1762937886
+!i10b 1
+!s100 ZD4mao=`>34QhOIlIk1lo0
+R1
+IH2g20=nHho;BMM3hjQ^AV1
+R2
+R3
+Z25 w1760520051
+Z26 8D:/sigle cycle1/data_mem.v
+Z27 FD:/sigle cycle1/data_mem.v
+!i122 910
+Z28 L0 2 34
+R4
+r1
+!s85 0
+31
+Z29 !s108 1762937886.000000
+Z30 !s107 D:/sigle cycle1/data_mem.v|
+Z31 !s90 -reportprogress|300|-work|work|D:/sigle cycle1/data_mem.v|
+!i113 1
+R6
+R7
+vdata_mem11
+Z32 !s110 1760512704
+!i10b 1
+!s100 2]ecPTGlQYdDVff2YoJE=1
+R1
+I3BJgGDBY9i0ahIa@CM9P=3
+R2
+R10
+Z33 w1760512699
+Z34 8C:/intelFPGA/20.1/single cycle/data_mem11.v
+Z35 FC:/intelFPGA/20.1/single cycle/data_mem11.v
+!i122 575
+L0 1 44
+R4
+r1
+!s85 0
+31
+Z36 !s108 1760512704.000000
+Z37 !s107 C:/intelFPGA/20.1/single cycle/data_mem11.v|
+Z38 !s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA/20.1/single cycle/data_mem11.v|
+!i113 1
+R6
+R7
+vdata_memory
+Z39 !s110 1760518076
+!i10b 1
+!s100 ^7AL56Y_`6fDZWP_T_Q:X3
+R1
+IR`WYBT3G6`kONiMH0hk0G3
+R2
+R10
+Z40 w1760518047
+Z41 8C:/intelFPGA/20.1/single cycle/data_mem.v
+Z42 FC:/intelFPGA/20.1/single cycle/data_mem.v
+!i122 656
+R28
+R4
+r1
+!s85 0
+31
+Z43 !s108 1760518076.000000
+Z44 !s107 C:/intelFPGA/20.1/single cycle/data_mem.v|
+Z45 !s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA/20.1/single cycle/data_mem.v|
+!i113 1
+R6
+R7
+vI2C_Configurable_Full
+!s110 1762937896
+!i10b 1
+!s100 Q5^5KA6P1NIYSL6hCBfG]2
+R1
+Iend?M>71]Bn3W;cJTJd;U0
+R2
+R3
+w1762894362
+8D:/sigle cycle1/I2C_Configurable_Full
+FD:/sigle cycle1/I2C_Configurable_Full
+!i122 916
+L0 1 132
+R4
+r1
+!s85 0
+31
+!s108 1762937896.000000
+!s107 D:/sigle cycle1/I2C_Configurable_Full|
+!s90 -reportprogress|300|-work|work|D:/sigle cycle1/I2C_Configurable_Full|
+!i113 1
+R6
+R7
+n@i2@c_@configurable_@full
+vi2c_master
+Z46 !s110 1762805744
+!i10b 1
+!s100 98iMK@HabCDT03CX]F1Oo0
+R1
+IjFzMlBAJ`[SOI2VQKiO4<0
+R2
+R3
+Z47 w1762805738
+Z48 8D:/single cycle/i2c_master
+Z49 FD:/single cycle/i2c_master
+!i122 869
+L0 2 126
+R4
+r1
+!s85 0
+31
+Z50 !s108 1762805744.000000
+Z51 !s107 D:/single cycle/i2c_master|
+Z52 !s90 -reportprogress|300|-work|work|D:/single cycle/i2c_master|
+!i113 1
+R6
+R7
+vi2c_master_tb
+!s110 1762771574
+!i10b 1
+!s100 Eo4cnXD@kXZEXj=7jl9FM3
+R1
+I_JkEPg2Po2fC83j;d=CV83
+R2
+R3
+w1762771570
+R48
+R49
+!i122 862
+L0 121 56
+R4
+r1
+!s85 0
+31
+!s108 1762771574.000000
+R51
+R52
+!i113 1
+R6
+R7
+vi2c_slave_controller
+!s110 1762771291
+!i10b 1
+!s100 M3nL14?QkJfzn9zeI^NN^3
+R1
+IhjI2J7kXSdTOkdkLe1F`Z2
+R2
+R3
+w1762771254
+8D:/single cycle/i2c_slave_controller
+FD:/single cycle/i2c_slave_controller
+!i122 859
+L0 3 107
+R4
+r1
+!s85 0
+31
+!s108 1762771291.000000
+!s107 D:/single cycle/i2c_slave_controller|
+!s90 -reportprogress|300|-work|work|D:/single cycle/i2c_slave_controller|
+!i113 1
+R6
+R7
+vI2C_Slave_Full
+!s110 1762937902
+!i10b 1
+!s100 SjKJf<KXaB2YK>Y26_6^e3
+R1
+IQ<GZih>SnQH`bifbEKinR1
+R2
+R3
+w1762887910
+8D:/sigle cycle1/I2C_Slave_Full
+FD:/sigle cycle1/I2C_Slave_Full
+!i122 917
+L0 1 53
+R4
+r1
+!s85 0
+31
+!s108 1762937902.000000
+!s107 D:/sigle cycle1/I2C_Slave_Full|
+!s90 -reportprogress|300|-work|work|D:/sigle cycle1/I2C_Slave_Full|
+!i113 1
+R6
+R7
+n@i2@c_@slave_@full
+vimmem_ext
+R0
+!i10b 1
+!s100 gRGL>=ionFk2Re_BR>XWf3
+R1
+I=chz>7ld`;;z2gLF?4?391
+R2
+R3
+w1760472301
+8D:/single cycle/immem_ext.v
+FD:/single cycle/immem_ext.v
+!i122 921
+R8
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/single cycle/immem_ext.v|
+!s90 -reportprogress|300|-work|work|D:/single cycle/immem_ext.v|
+!i113 1
+R6
+R7
+vinstr_mem
+R0
+!i10b 1
+!s100 RjR5:mzTZXeh@LaUIc6Fc1
+R1
+IDngd4?N:=I;OF?gPb03h80
+R2
+R3
+Z53 w1760528608
+Z54 8D:/single cycle/instr_mem.v
+Z55 FD:/single cycle/instr_mem.v
+!i122 922
+L0 1 65
+R4
+r1
+!s85 0
+31
+R5
+Z56 !s107 D:/single cycle/instr_mem.v|
+Z57 !s90 -reportprogress|300|-work|work|D:/single cycle/instr_mem.v|
+!i113 1
+R6
+R7
+vInstruction_Fetch
+Z58 !s110 1760513824
+!i10b 1
+!s100 bPYkk`ULk=n[dbI9>OmWK1
+R1
+ICb^Kj@k<_J1I<@k7P[MzZ0
+R2
+R10
+Z59 w1760513264
+Z60 8C:/intelFPGA/20.1/single cycle/instruction_fetch.v
+Z61 FC:/intelFPGA/20.1/single cycle/instruction_fetch.v
+!i122 608
+L0 1 29
+R4
+r1
+!s85 0
+31
+Z62 !s108 1760513824.000000
+Z63 !s107 C:/intelFPGA/20.1/single cycle/instruction_fetch.v|
+Z64 !s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA/20.1/single cycle/instruction_fetch.v|
+!i113 1
+R6
+R7
+n@instruction_@fetch
+vInstruction_Memory
+R58
+!i10b 1
+!s100 MElDIPHn3Y1bF3jZ>k4M01
+R1
+I0^A@H?QQOj]^Am8bzTZJ_2
+R2
+R10
+w1760513214
+8C:/intelFPGA/20.1/single cycle/Instruction_Memory.v
+FC:/intelFPGA/20.1/single cycle/Instruction_Memory.v
+!i122 611
+L0 1 20
+R4
+r1
+!s85 0
+31
+R62
+!s107 C:/intelFPGA/20.1/single cycle/Instruction_Memory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA/20.1/single cycle/Instruction_Memory.v|
+!i113 1
+R6
+R7
+n@instruction_@memory
+vpc_cnt
+Z65 !s110 1763387748
+!i10b 1
+!s100 >I9caoB;hcBBRmN^<kM9C1
+R1
+I]T;`9@ACOR5?Y>jC@RYzH3
+R2
+R3
+Z66 w1760466542
+Z67 8D:/single cycle/pc_cnt.v
+Z68 FD:/single cycle/pc_cnt.v
+!i122 923
+Z69 L0 1 15
+R4
+r1
+!s85 0
+31
+R5
+Z70 !s107 D:/single cycle/pc_cnt.v|
+Z71 !s90 -reportprogress|300|-work|work|D:/single cycle/pc_cnt.v|
+!i113 1
+R6
+R7
+vProgram_Counter
+R58
+!i10b 1
+!s100 6OkV04o>QP2fUPde?n18z1
+R1
+In_S?HQj8hUDzc[U59nIH=0
+R2
+R10
+w1760513065
+8C:/intelFPGA/20.1/single cycle/Program_Counter.v
+FC:/intelFPGA/20.1/single cycle/Program_Counter.v
+!i122 609
+L0 1 13
+R4
+r1
+!s85 0
+31
+R62
+!s107 C:/intelFPGA/20.1/single cycle/Program_Counter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA/20.1/single cycle/Program_Counter.v|
+!i113 1
+R6
+R7
+n@program_@counter
+vprogram_counter
+Z72 !s110 1762932269
+!i10b 1
+!s100 846`Giz]?fAT[mknlLCBe1
+R1
+I9Tz2`nddSRGJJgd7@8MEj3
+R2
+R3
+Z73 w1762932264
+Z74 8D:/single cycle/program_counter
+Z75 FD:/single cycle/program_counter
+!i122 888
+R69
+R4
+r1
+!s85 0
+31
+Z76 !s108 1762932269.000000
+Z77 !s107 D:/single cycle/program_counter|
+Z78 !s90 -reportprogress|300|-work|work|D:/single cycle/program_counter|
+!i113 1
+R6
+R7
+vreg_file
+R65
+!i10b 1
+!s100 n>G[_bedL=X8@d[8FI]EG3
+R1
+I;8^G__0@XNnC4f?[A2L]^1
+R2
+R3
+Z79 w1760555518
+Z80 8D:/single cycle/reg_file.v
+Z81 FD:/single cycle/reg_file.v
+!i122 924
+R8
+R4
+r1
+!s85 0
+31
+Z82 !s108 1763387748.000000
+Z83 !s107 D:/single cycle/reg_file.v|
+Z84 !s90 -reportprogress|300|-work|work|D:/single cycle/reg_file.v|
+!i113 1
+R6
+R7
+vtb_control_unit
+R9
+!i10b 1
+!s100 `>m@1YVB0`0l4akW1kFbm3
+R1
+IA=`Eb=jREbkW;9b]6L;f`1
+R2
+R10
+R11
+R12
+R13
+!i122 606
+L0 133 99
+R4
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 1
+R6
+R7
+vtb_d_flipflop
+R17
+!i10b 1
+!s100 bbECNndzX]flXKQJkjKfk0
+R1
+I>=D^Zg?XFnS2mi50k`;i`0
+R2
+R3
+R18
+R19
+R20
+!i122 889
+L0 21 39
+R4
+r1
+!s85 0
+31
+R21
+R22
+R23
+!i113 1
+R6
+R7
+vtb_data_mem
+R24
+!i10b 1
+!s100 Lac`XD@KVfLzDFNb9YKoJ1
+R1
+I;7^WBHC[EQGoeQ7Ia_S=]2
+R2
+R3
+R25
+R26
+R27
+!i122 910
+Z85 L0 44 45
+R4
+r1
+!s85 0
+31
+R29
+R30
+R31
+!i113 1
+R6
+R7
+vtb_data_mem11
+R32
+!i10b 1
+!s100 L[0FFHUCb@^iJ6XBd9fYT0
+R1
+IZ2S:[dMg@NSZjn>BfLe[L1
+R2
+R10
+R33
+R34
+R35
+!i122 575
+L0 47 32
+R4
+r1
+!s85 0
+31
+R36
+R37
+R38
+!i113 1
+R6
+R7
+vtb_data_memory
+R39
+!i10b 1
+!s100 gMk47?ALzK<Ofad[@M8MD0
+R1
+IG;e[ffDU<TUQVk;Aa1ShI1
+R2
+R10
+R40
+R41
+R42
+!i122 656
+R85
+R4
+r1
+!s85 0
+31
+R43
+R44
+R45
+!i113 1
+R6
+R7
+vtb_i2c_master
+R46
+!i10b 1
+!s100 95FEGIe[M1@V3<S[^LDgb2
+R1
+IVTL=@ScbnJFbYOnkZYDgM1
+R2
+R3
+R47
+R48
+R49
+!i122 869
+L0 130 124
+R4
+r1
+!s85 0
+31
+R50
+R51
+R52
+!i113 1
+R6
+R7
+vtb_i2c_master_real
+!s110 1762708953
+!i10b 1
+!s100 mJd]GJ0R:l[nXi1QHc<E02
+R1
+IGfichT^3i94UePKkkMHND0
+R2
+R3
+w1762708921
+R48
+R49
+!i122 805
+L0 77 64
+R4
+r1
+!s85 0
+31
+!s108 1762708953.000000
+R51
+R52
+!i113 1
+R6
+R7
+vtb_instr_mem
+R0
+!i10b 1
+!s100 @LBkc<6EiA6F_X94D18PP3
+R1
+I;m;o^j_Z<M9c2G^nA3]Z;0
+R2
+R3
+R53
+R54
+R55
+!i122 922
+L0 69 33
+R4
+r1
+!s85 0
+31
+R5
+R56
+R57
+!i113 1
+R6
+R7
+vtb_Instruction_Fetch
+R58
+!i10b 1
+!s100 j0ahUI;jVSQ;bdU5nY]?]0
+R1
+I5TB`@ai=hBI61C0mOlKEK0
+R2
+R10
+R59
+R60
+R61
+!i122 608
+L0 30 34
+R4
+r1
+!s85 0
+31
+R62
+R63
+R64
+!i113 1
+R6
+R7
+ntb_@instruction_@fetch
+vtb_pc_cnt
+R65
+!i10b 1
+!s100 `imfWkB@GRBcf@gEin;7_2
+R1
+I1BmQg68^MX=_fncojToB70
+R2
+R3
+R66
+R67
+R68
+!i122 923
+L0 21 61
+R4
+r1
+!s85 0
+31
+R5
+R70
+R71
+!i113 1
+R6
+R7
+vtb_program_counter
+R72
+!i10b 1
+!s100 5:TofPP1a_Yc9_dFYbzmC0
+R1
+Ij64Oj6^n4gYQYMc8fM@ak0
+R2
+R3
+R73
+R74
+R75
+!i122 888
+L0 17 48
+R4
+r1
+!s85 0
+31
+R76
+R77
+R78
+!i113 1
+R6
+R7
+vtb_reg_file
+R65
+!i10b 1
+!s100 ZoD4GWCJAE2[JBBf;8Qje0
+R1
+IW8oi2j?U@KA]U?RH6@9WC1
+R2
+R3
+R79
+R80
+R81
+!i122 924
+L0 31 118
+R4
+r1
+!s85 0
+31
+R82
+R83
+R84
+!i113 1
+R6
+R7
+vtb_toplvl_processor
+!s110 1762937887
+!i10b 1
+!s100 IKf3h<?NA6<c7RJ9[XMz33
+R1
+I@miKX<gLb:Y:j<2izo>UM0
+R2
+R3
+w1762937772
+8D:/sigle cycle1/toplvl_processor.v
+FD:/sigle cycle1/toplvl_processor.v
+!i122 915
+L0 144 49
+R4
+r1
+!s85 0
+31
+!s108 1762937887.000000
+!s107 D:/sigle cycle1/toplvl_processor.v|
+!s90 -reportprogress|300|-work|work|D:/sigle cycle1/toplvl_processor.v|
+!i113 1
+R6
+R7
+vtoplvl_processor
+R65
+!i10b 1
+!s100 ZGb3X?fZBIk:S;=[dJh5j0
+R1
+ImcYzkVIoZaL8=^NIeRJ<S3
+R2
+R3
+w1762689053
+8D:/single cycle/toplvl_processor.v
+FD:/single cycle/toplvl_processor.v
+!i122 925
+L0 1 113
+R4
+r1
+!s85 0
+31
+R82
+!s107 D:/single cycle/toplvl_processor.v|
+!s90 -reportprogress|300|-work|work|D:/single cycle/toplvl_processor.v|
+!i113 1
+R6
+R7

@@ -1,0 +1,58 @@
+`timescale 1ns / 1ps
+module top_i2c_system(
+    input  wire        clk,
+    input  wire        start,
+    input  wire        mem_write,       // 1 = write to slave, 0 = read from slave
+    input  wire [31:0] address,
+    input  wire [31:0] write_data,
+    output wire        done,
+    output wire [31:0] slave0_data_out,
+    output wire [31:0] slave1_data_out
+);
+
+    // ===== Internal Signals =====
+    wire scl;
+    wire sda;
+    wire ack_from_slave0;
+    wire ack_from_slave1;
+    wire slave_sel;
+
+    // ===== Master drives scl/sda =====
+    i2c_master master_inst (
+        .clk(clk),
+        .start(start),
+        .address(address),
+        .write_data(write_data),
+        .ack_from_slave0(ack_from_slave0),
+        .ack_from_slave1(ack_from_slave1),
+        .mem_write(mem_write),
+        .scl(scl),
+        .sda(sda),
+        .slave_sel(slave_sel),
+        .done(done)
+    );
+
+    // ===== Slave 0 instance =====
+    i2c_slave slave0_inst (
+        .clk(clk),
+        .scl(scl),
+        .sda(sda),
+        .mem_write(mem_write),
+        .data_out(slave0_data_out),    // output from slave0
+        .data_in(32'hAAAA_BBBB),       // for read mode
+        .ack_out(ack_from_slave0)
+    );
+
+    // ===== Slave 1 instance =====
+    i2c_slave1 slave1_inst (
+        .clk(clk),
+        .scl(scl),
+        .sda(sda),
+        .mem_write(mem_write),
+        .data_out(slave1_data_out),    // output from slave1
+        .data_in(32'hCCCC_DDDD),       // for read mode
+        .ack_out(ack_from_slave1)
+    );
+
+endmodule
+

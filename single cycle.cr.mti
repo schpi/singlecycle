@@ -1,0 +1,55 @@
+{C:/intelFPGA/20.1/single cycle/instr_mem.v} {1 {vlog -work work -stats=none {C:/intelFPGA/20.1/single cycle/instr_mem.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module instr_mem
+-- Compiling module tb_instr_mem
+
+Top level modules:
+	tb_instr_mem
+
+} {} {}} {C:/intelFPGA/20.1/single cycle/alu_1.v} {1 {vlog -work work -stats=none {C:/intelFPGA/20.1/single cycle/alu_1.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module alu_1
+
+Top level modules:
+	alu_1
+
+} {} {}} {C:/intelFPGA/20.1/single cycle/pc_cnt.v} {1 {vlog -work work -stats=none {C:/intelFPGA/20.1/single cycle/pc_cnt.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module pc_cnt
+-- Compiling module tb_pc_cnt
+
+Top level modules:
+	tb_pc_cnt
+
+} {} {}} {C:/intelFPGA/20.1/single cycle/data_mem.v} {1 {vlog -work work -stats=none {C:/intelFPGA/20.1/single cycle/data_mem.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module data_mem
+-- Compiling module tb_data_mem
+
+Top level modules:
+	data_mem
+	tb_data_mem
+
+} {} {}} {C:/intelFPGA/20.1/single cycle/Adder.v} {1 {vlog -work work -stats=none {C:/intelFPGA/20.1/single cycle/Adder.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Adder
+
+Top level modules:
+	Adder
+
+} {} {}} {C:/intelFPGA/20.1/single cycle/reg_file.v} {1 {vlog -work work -stats=none {C:/intelFPGA/20.1/single cycle/reg_file.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module reg_file
+-- Compiling module tb_reg_file
+
+Top level modules:
+	tb_reg_file
+
+} {} {}} {C:/intelFPGA/20.1/single cycle/immem_ext.v} {1 {vlog -work work -stats=none {C:/intelFPGA/20.1/single cycle/immem_ext.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module immem_ext
+
+Top level modules:
+	immem_ext
+
+} {} {}}

@@ -1,0 +1,59 @@
+
+module d_flipflop (
+    input wire D,
+    input wire clk,
+    input wire rst,   
+    output reg Q
+);
+
+    always @(posedge clk or posedge rst) begin
+        if (rst)
+            Q <= 1'b0;    
+        else
+            Q <= D;       
+    end
+
+endmodule
+
+
+`timescale 1ns/1ps
+
+module tb_d_flipflop;
+    reg D;
+    reg clk;
+    reg rst;
+    wire Q;
+
+    
+    d_flipflop uut (
+        .D(D),
+        .clk(clk),
+        .rst(rst),
+        .Q(Q)
+    );
+
+    
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
+
+    
+    initial begin
+            rst = 1; D = 0;
+        #10; rst = 0;   
+        #10; D = 1;
+        #10; D = 0;
+        #10; D = 1;
+        #10; D = 0;
+        #10; rst = 1;   
+        #10; rst = 0;
+
+        #20; $finish;   
+    end
+
+    initial begin
+        $monitor("Time=%0t | clk=%b | rst=%b | D=%b | Q=%b", $time, clk, rst, D, Q);
+    end
+
+endmodule

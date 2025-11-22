@@ -1,0 +1,231 @@
+module control_unit (
+    input  [6:0] opcode,
+    input  [2:0] funct3,
+    input  [6:0] funct7,
+    input        Zero,  // Used for branch control
+    output       RegWrite,
+    output       MemWrite,
+    output [1:0] ALUSrc,
+    output [2:0] ImmSrc,
+    output [1:0] ResultSrc,
+    output       Branch,
+    output [2:0] ALUControl,
+    output       Jump,
+    output       PCSrc
+);
+
+    // Internal wires
+    reg        reg_write, mem_write, branch, jump;
+    reg [1:0]  result_src, alu_src;
+    reg [2:0]  imm_src;
+    reg [1:0]  alu_op;
+    reg [2:0]  alu_control;
+
+    // Assign outputs
+    assign RegWrite   = reg_write;
+    assign MemWrite   = mem_write;
+    assign ALUSrc     = alu_src;
+    assign ImmSrc     = imm_src;
+    assign ResultSrc  = result_src;
+    assign Branch     = branch;
+    assign Jump       = jump;
+    assign PCSrc      = (Branch & Zero) | Jump;
+    assign ALUControl = alu_control;
+
+    // Main Decoder
+    always @(*) begin
+        case (opcode)
+            7'b0000011: begin // lw
+                reg_write   = 1;
+                mem_write   = 0;
+                alu_src     = 2'b01;
+                imm_src     = 3'b000;
+                result_src  = 2'b01;
+                branch      = 0;
+                jump        = 0;
+                alu_op      = 2'b00;
+            end
+            7'b0100011: begin // sw
+                reg_write   = 0;
+                mem_write   = 1;
+                alu_src     = 2'b01;
+                imm_src     = 3'b001;
+                result_src  = 2'bxx;
+                branch      = 0;
+                jump        = 0;
+                alu_op      = 2'b00;
+            end
+            7'b0110011: begin // R-type
+                reg_write   = 1;
+                mem_write   = 0;
+                alu_src     = 2'b00;
+                imm_src     = 3'bxxx;
+                result_src  = 2'b00;
+                branch      = 0;
+                jump        = 0;
+                alu_op      = 2'b10;
+            end
+            7'b1100011: begin // beq
+                reg_write   = 0;
+                mem_write   = 0;
+                alu_src     = 2'b00;
+                imm_src     = 3'b010;
+                result_src  = 2'bxx;
+                branch      = 1;
+                jump        = 0;
+                alu_op      = 2'b01;
+            end
+            7'b0010011: begin // I-type (e.g. addi)
+                reg_write   = 1;
+                mem_write   = 0;
+                alu_src     = 2'b01;
+                imm_src     = 3'b000;
+                result_src  = 2'b00;
+                branch      = 0;
+                jump        = 0;
+                alu_op      = 2'b10;
+            end
+            7'b1101111: begin // jal
+                reg_write   = 1;
+                mem_write   = 0;
+                alu_src     = 2'bxx;
+                imm_src     = 3'b011;
+                result_src  = 2'b10; // return address
+                branch      = 0;
+                jump        = 1;
+                alu_op      = 2'bxx;
+            end
+            default: begin
+                reg_write   = 0;
+                mem_write   = 0;
+                alu_src     = 2'b00;
+                imm_src     = 3'b000;
+                result_src  = 2'b00;
+                branch      = 0;
+                jump        = 0;
+                alu_op      = 2'b00;
+            end
+        endcase
+    end
+
+    // ALU Decoder
+    always @(*) begin
+        case (alu_op)
+            2'b00: alu_control = 3'b000; // add (for lw/sw)
+            2'b01: alu_control = 3'b001; // sub (for branches)
+            2'b10: begin // R-type or I-type
+                case (funct3)
+                    3'b000: alu_control = (funct7 == 7'b0100000) ? 3'b001 : 3'b000; // sub : add
+                    3'b010: alu_control = 3'b101; // slt
+                    3'b110: alu_control = 3'b011; // or
+                    3'b111: alu_control = 3'b010; // and
+                    default: alu_control = 3'b000;
+                endcase
+            end
+            default: alu_control = 3'b000;
+        endcase
+    end
+
+endmodule
+
+`timescale 1ns / 1ps
+
+module tb_control_unit;
+
+    // Testbench inputs
+    reg  [6:0] opcode;
+    reg  [2:0] funct3;
+    reg  [6:0] funct7;
+    reg        Zero;
+
+    // Testbench outputs from control_unit
+    wire       RegWrite;
+    wire       MemWrite;
+    wire [1:0] ALUSrc;
+    wire [2:0] ImmSrc;
+    wire [1:0] ResultSrc;
+    wire       Branch;
+    wire [2:0] ALUControl;
+    wire       Jump;
+    wire       PCSrc;
+
+    // Instantiate the control_unit
+    control_unit uut (
+        .opcode(opcode),
+        .funct3(funct3),
+        .funct7(funct7),
+        .Zero(Zero),
+        .RegWrite(RegWrite),
+        .MemWrite(MemWrite),
+        .ALUSrc(ALUSrc),
+        .ImmSrc(ImmSrc),
+        .ResultSrc(ResultSrc),
+        .Branch(Branch),
+        .ALUControl(ALUControl),
+        .Jump(Jump),
+        .PCSrc(PCSrc)
+    );
+
+    // Procedure to display control signals
+    task display_controls;
+        $display("Opcode = %b | RegWrite = %b | MemWrite = %b | ALUSrc = %b | ImmSrc = %b | ResultSrc = %b | Branch = %b | ALUControl = %b | Jump = %b | PCSrc = %b",
+                 opcode, RegWrite, MemWrite, ALUSrc, ImmSrc, ResultSrc, Branch, ALUControl, Jump, PCSrc);
+    endtask
+
+    initial begin
+        $display("\n=== CONTROL UNIT TEST ===");
+
+        // Test 1: lw
+        opcode = 7'b0000011; // lw
+        funct3 = 3'b010;
+        funct7 = 7'b0000000;
+        Zero   = 0;
+        #10; display_controls();
+
+        // Test 2: sw
+        opcode = 7'b0100011; // sw
+        funct3 = 3'b010;
+        funct7 = 7'b0000000;
+        Zero   = 0;
+        #10; display_controls();
+
+        // Test 3: R-type (add)
+        opcode = 7'b0110011;
+        funct3 = 3'b000;
+        funct7 = 7'b0000000;
+        Zero   = 0;
+        #10; display_controls();
+
+        // Test 4: R-type (sub)
+        opcode = 7'b0110011;
+        funct3 = 3'b000;
+        funct7 = 7'b0100000;
+        Zero   = 0;
+        #10; display_controls();
+
+        // Test 5: beq
+        opcode = 7'b1100011;
+        funct3 = 3'b000;
+        funct7 = 7'b0000000;
+        Zero   = 1; // Zero flag active ? branch taken
+        #10; display_controls();
+
+        // Test 6: I-type ALU (e.g. addi)
+        opcode = 7'b0010011;
+        funct3 = 3'b000;
+        funct7 = 7'b0000000;
+        Zero   = 0;
+        #10; display_controls();
+
+        // Test 7: jal
+        opcode = 7'b1101111;
+        funct3 = 3'b000;
+        funct7 = 7'b0000000;
+        Zero   = 0;
+        #10; display_controls();
+
+        $display("=== CONTROL UNIT TEST COMPLETE ===");
+        $stop;
+    end
+
+endmodule

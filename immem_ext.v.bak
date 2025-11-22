@@ -1,0 +1,26 @@
+module immem_ext (
+    input  [1:0] imm_src ,        // 2-bit selector from Control Unit
+    input  [31:0] Ins,          // 32-bit instruction
+    output reg [31:0] Imm       // Final sign-extended immediate
+);
+
+    always @(*) begin
+        case (imm_src )
+            // 00: I-type --> lw, addi, etc
+            2'b00: Imm = {{20{Ins[31]}}, Ins[31:20]};
+
+            // 01: S-type --> sw, sb
+            2'b01: Imm = {{20{Ins[31]}}, Ins[31:25], Ins[11:7]};
+
+            // 10: B-type --> beq, bne
+            2'b10: Imm = {{19{Ins[31]}}, Ins[31], Ins[7], Ins[30:25], Ins[11:8], 1'b0};
+
+            // 11: J-type --> jal
+            2'b11: Imm = {{11{Ins[31]}}, Ins[31], Ins[19:12], Ins[20], Ins[30:21], 1'b0};
+
+            // R-type or invalid ? No immediate
+            default: Imm = 32'd0;
+        endcase
+    end
+
+endmodule
